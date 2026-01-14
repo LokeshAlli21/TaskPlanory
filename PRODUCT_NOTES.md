@@ -134,7 +134,13 @@ The following features are intentionally excluded from the initial version:
 
 ---
 
-## 10. Phase Status
+## 10. 30-Second Project Pitch
+
+> TaskPlanory is an AI-powered work management platform designed to reduce planning overhead for teams. Unlike Jira or Notion, which are largely manual, TaskPlanory uses AI to dynamically prioritize tasks, recommend what users should work on next, and generate sprint insights. The project focuses on multi-tenant architecture, role-based access control, scalable backend design, and explainable AI to support better decision-making.
+
+---
+
+## 11. Phase Status
 
 **Current Phase:** Phase 0 — Product Definition Complete
 
