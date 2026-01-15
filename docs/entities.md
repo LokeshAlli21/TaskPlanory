@@ -107,4 +107,55 @@ forcing users to re-authenticate frequently.
 
 ---
 
+## Entity Boundaries
+
+- **User**  
+  Does NOT store role or authorization logic — separate table handles roles.
+
+- **Organization**  
+  Does NOT directly hold user data — membership table manages users.
+
+- **OrganizationMember**  
+  Only stores membership roles — does NOT store project/task data.
+
+- **Project**  
+  Does NOT handle tasks directly — tasks are separate.
+
+- **Task**  
+  Does NOT store comments — comments live in separate entity.
+
+- **TaskComment**  
+  Only stores comment text & references — NO business logic.
+
+- **ActivityLog**  
+  Append-only audit logs — Does NOT affect app state.
+
+- **RefreshToken**  
+  Only stores JWT refresh tokens — Does NOT store user secrets.
+
+
+## Root vs Dependent Entities
+
+- **Root Entities**  
+  Entities that can be created without depending on another:  
+  - User  
+  - Organization
+
+- **Dependent Entities**  
+  Entities that depend on a parent entity’s existence:  
+  - OrganizationMember  
+  - Project  
+  - Task  
+  - TaskComment  
+  - ActivityLog  
+  - RefreshToken
+
+## Design Assumptions
+
+    1. Each task belongs to exactly one project and one organization.
+    2. A user can belong to multiple organizations but only through OrganizationMember.
+    3. AI-driven suggestions do not modify core data directly — user must approve.
+
+
+---
 End of Phase 1 – Day 1 Entity Definition
